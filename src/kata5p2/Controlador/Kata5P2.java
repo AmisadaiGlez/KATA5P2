@@ -7,7 +7,7 @@ import kata5p2.Modelo.Histogram;
 import kata5p2.Modelo.Mail;
 import kata5p2.Vista.HistogramDisplay;
 import kata5p2.Vista.MailHistogramBuilder;
-import kata5p2.Vista.SwitchBetweenArchiveAndDDBB;
+import kata5p2.Vista.MailListReader;
 
 public class Kata5P2 {
     
@@ -34,7 +34,7 @@ entrada input(), de proceso process() y de salida output().
     
     void input() throws IOException, ClassNotFoundException, SQLException {
         String fileName="emails.txt";
-        mailList=SwitchBetweenArchiveAndDDBB.read(fileName);
+        mailList=MailListReader.read(fileName);
     }
     
     void process() {
