@@ -13,13 +13,13 @@ public class MailListReader {
     
     public static List<Mail> read(String fileName) throws FileNotFoundException, IOException {
         List<Mail> mailList= new ArrayList<>();
-        BufferedReader reader = new BufferedReader(new FileReader(new File(fileName)));
-        String mail="";
-        while(((mail = reader.readLine()) != null)) {
-            if(!mail.contains("@")) continue;
-            mailList.add(new Mail(mail));
+        try (BufferedReader reader = new BufferedReader(new FileReader(new File(fileName)))) {
+            String mail;
+            while(((mail = reader.readLine()) != null)) {
+                if(!mail.contains("@")) continue;
+                mailList.add(new Mail(mail));
+            }
         }
-        reader.close();
         return mailList;
     }
     
